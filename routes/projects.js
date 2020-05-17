@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const physicsController = require("../controllers/physics");
+const projectController = require("../controllers/projects");
 
 router
-  .get('/', physicsController.get_all)
-  .post('/', physicsController.create_project)
-  .get('/:id', physicsController.get_project)
-  .patch('/:id', physicsController.update_project)
-  .delete('/:id', physicsController.remove_project);
+  .get('/', projectController.get_all)
+  .post('/', projectController.create_project)
+  .get('/:id', projectController.get_project)
+  .patch('/:id', projectController.update_project)
+  .delete('/:id', projectController.remove_project);
 
 module.exports = router;
