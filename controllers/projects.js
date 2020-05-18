@@ -2,7 +2,7 @@ const express = require("express");
 const Projects = require("../models/projects");
 
 exports.get_all = (req, res) => {
-  Projects.find({ projectType: "physics" }, "projectTitle")
+  Projects.find({ projectType: req.body.projectType }, "projectTitle")
     .exec()
     .then((doc) => {
       if (doc.length != 0) res.status(200).json(doc);
@@ -33,7 +33,7 @@ exports.create_project = (req, res) => {
 
 exports.get_project = (req, res) => {
   const id = req.params.id;
-  Projects.find({ projectType: "physics", projectTitle: id })
+  Projects.find({ projectType: req.body.projectType, _id: id })
     .then((doc) => {
       if (doc.length != 0) res.status(200).json(doc);
       else
@@ -48,7 +48,7 @@ exports.get_project = (req, res) => {
 
 exports.update_project = (req, res) => {
   const id = req.params.id;
-  Projects.updateMany({ projectTitle: id }, { $set: req.body })
+  Projects.updateMany({ _id: id }, { $set: req.body })
     .exec()
     .then((result) => {
       res.status(200).json({
@@ -65,7 +65,7 @@ exports.update_project = (req, res) => {
 
 exports.remove_project = (req, res) => {
   const id = req.params.id;
-  Projects.remove({ projectTitle: id })
+  Projects.remove({ _id: id })
     .exec()
     .then((result) => {
       res.status(200).json({
