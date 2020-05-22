@@ -2,7 +2,7 @@ const express = require("express");
 const Projects = require("../models/projects");
 
 exports.get_all = (req, res) => {
-  Projects.find({ projectType: req.query.projectType }, "projectTitle")
+  Projects.find({ projectType: req.query.projectType })
     .exec()
     .then((doc) => {
       if (doc.length != 0) res.status(200).json(doc);
