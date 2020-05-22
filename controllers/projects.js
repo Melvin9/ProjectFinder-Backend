@@ -5,7 +5,7 @@ exports.get_all = (req, res) => {
   Projects.find({ projectType: req.query.projectType })
     .exec()
     .then((doc) => {
-      if (doc.length != 0) res.status(200).json(doc);
+      if (doc.length != 0) res.status(200).json({project: doc});
       else res.status(404).json({ message: "Project not found" });
     })
     .catch((err) => {
