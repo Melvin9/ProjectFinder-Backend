@@ -10,6 +10,12 @@ const projectSchema = mongoose.Schema({
   projectDescription: {
     type: String,
   },
+  imageLink: {
+    type: String,
+  },
+  videoLink: {
+    type: String,
+  },
   itemsRequired: {
     type: String,
   },

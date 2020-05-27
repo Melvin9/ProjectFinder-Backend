@@ -21,6 +21,8 @@ exports.create_project = (req, res) => {
     itemsRequired: req.body.itemsRequired,
     steps: req.body.steps,
     cost: req.body.cost,
+    imageLink: req.body.imageLink,
+    videoLink: req.body.videoLink
   });
   project
     .save()
