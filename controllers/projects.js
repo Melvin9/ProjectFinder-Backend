@@ -17,6 +17,7 @@ exports.create_project = (req, res) => {
   const project = new Projects({
     projectType: req.body.projectType,
     projectTitle: req.body.projectTitle,
+    projectDescription: req.body.projectDescription,
     itemsRequired: req.body.itemsRequired,
     steps: req.body.steps,
     cost: req.body.cost,

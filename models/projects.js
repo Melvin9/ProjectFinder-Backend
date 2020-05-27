@@ -7,6 +7,9 @@ const projectSchema = mongoose.Schema({
   projectTitle: {
     type: String,
   },
+  projectDescription: {
+    type: String,
+  },
   itemsRequired: {
     type: String,
   },
